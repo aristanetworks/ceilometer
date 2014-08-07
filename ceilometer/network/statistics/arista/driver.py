@@ -11,7 +11,6 @@ class AristaDriver(driver.Driver):
     """ Arista Switch statistics pollster driver. """
     
     def get_sample_data(self, meter_name, parse_url, params, cache):
-        LOG.debug(">>>> polling %s" % meter_name)
         # Ignore unsupported meters
         if not meter_name in constants.SUPPORTED_METERS:
             return None
