@@ -94,6 +94,13 @@ sources:
           - "fw_policy"
       sinks:
           - "meter_sink"
+    - name: arista_source
+      interval: 600
+      meters:
+          - "switch.port.receive.packets"
+          - "switch.port.transmit.packets"
+      sinks:
+          - "arista_sink"
 sinks:
     - name: meter_sink
       transformers:
@@ -140,3 +147,8 @@ sinks:
                     type: "gauge"
       publishers:
           - rpc://
+    - name: arista_sink
+      transformers:
+      publishers:
+          - rpc://
+
